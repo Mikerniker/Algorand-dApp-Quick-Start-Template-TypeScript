@@ -41,3 +41,39 @@ const Home: React.FC<HomeProps> = () => {
           <span>{activeAddress ? 'Wallet Connected' : 'Connect Wallet'}</span>
         </button>
       </nav>
+
+        {/* ---------------- Hero Section ---------------- */}
+      <header className="flex flex-col items-center text-center py-20 px-6">
+        <h2 className="text-5xl sm:text-6xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-emerald-300 to-teal-400 drop-shadow-lg mb-6">
+          Build. Explore. Grow. 🌿
+        </h2>
+        <p className="text-emerald-100/80 max-w-2xl text-lg mb-8 leading-relaxed">
+          Discover how Algorand empowers sustainable innovation — connect your wallet, mint NFTs, and create tokens
+          on the most energy-efficient blockchain.
+        </p>
+        <button
+          onClick={() => setOpenWalletModal(true)}
+          className="px-8 py-3 rounded-2xl font-bold text-lg text-emerald-950 bg-gradient-to-r from-emerald-300 to-teal-300 shadow-[8px_8px_16px_rgba(0,0,0,0.4),-4px_-4px_16px_rgba(255,255,255,0.1)] hover:scale-105 hover:shadow-[inset_4px_4px_12px_rgba(0,0,0,0.3),inset_-4px_-4px_12px_rgba(255,255,255,0.05)] transition-all"
+        >
+          {activeAddress ? 'Explore Features' : 'Connect Wallet to Begin'}
+        </button>
+      </header>
+
+      {/* ---------------- Features Grid ---------------- */}
+      <main className="flex-1 px-6 pb-16">
+        {activeAddress ? (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-8 max-w-5xl mx-auto">
+            {/* Send Payment */}
+            <div className="p-8 rounded-3xl bg-emerald-900/40 shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_16px_rgba(255,255,255,0.05)] hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),inset_-4px_-4px_8px_rgba(255,255,255,0.05)] transition-all">
+              <AiOutlineSend className="text-5xl mb-4 text-emerald-300" />
+              <h3 className="text-2xl font-semibold mb-2">Send Payment</h3>
+              <p className="text-emerald-100/70 mb-6">
+                Send 1 ALGO to any address on TestNet to experience seamless transactions.
+              </p>
+              <button
+                className="w-full py-2 rounded-xl bg-emerald-400 hover:bg-emerald-300 text-emerald-950 font-semibold shadow-[2px_2px_8px_rgba(0,0,0,0.4)] transition"
+                onClick={() => setOpenPaymentModal(true)}
+              >
+                Open
+              </button>
+            </div>
