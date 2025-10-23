@@ -1,16 +1,16 @@
 // Home.tsx
 // Redesigned Landing Page — Modern Verdant Neumorphic Style (TailwindCSS)
 
-import React, { useState } from 'react'
 import { useWallet } from '@txnlab/use-wallet-react'
-import { AiOutlineWallet, AiOutlineSend, AiOutlineStar, AiOutlineDeploymentUnit } from 'react-icons/ai'
+import React, { useState } from 'react'
+import { AiOutlineDeploymentUnit, AiOutlineSend, AiOutlineStar } from 'react-icons/ai'
 import { BsArrowUpRightCircle, BsWallet2 } from 'react-icons/bs'
 
 // Frontend modals
 import ConnectWallet from './components/ConnectWallet'
-import Transact from './components/Transact'
 import NFTmint from './components/NFTmint'
 import Tokenmint from './components/Tokenmint'
+import Transact from './components/Transact'
 
 // Smart contract demo modal (backend app calls)
 import AppCalls from './components/AppCalls'
@@ -107,3 +107,37 @@ const Home: React.FC<HomeProps> = () => {
                 Open
               </button>
             </div>
+
+{/* Contract Interactions */}
+            <div className="p-8 rounded-3xl bg-emerald-900/40 shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_16px_rgba(255,255,255,0.05)] hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),inset_-4px_-4px_8px_rgba(255,255,255,0.05)] transition-all">
+              <AiOutlineDeploymentUnit className="text-5xl mb-4 text-cyan-300" />
+              <h3 className="text-2xl font-semibold mb-2">Contract Interactions</h3>
+              <p className="text-emerald-100/70 mb-6">
+                Try interacting with a simple Algorand smart contract and see stateful dApps in action.
+              </p>
+              <button
+                className="w-full py-2 rounded-xl bg-cyan-400 hover:bg-cyan-300 text-emerald-950 font-semibold shadow-[2px_2px_8px_rgba(0,0,0,0.4)] transition"
+                onClick={() => setOpenAppCallsModal(true)}
+              >
+                Open
+              </button>
+            </div>
+          </div>
+        ) : (
+          <div className="text-center text-emerald-100/70 mt-12">
+            <p>⚡ Connect your wallet first to unlock these sustainable dApp features.</p>
+          </div>
+        )}
+      </main>
+
+      {/* ---------------- Modals ---------------- */}
+      <ConnectWallet openModal={openWalletModal} closeModal={() => setOpenWalletModal(false)} />
+      <Transact openModal={openPaymentModal} setModalState={setOpenPaymentModal} />
+      <NFTmint openModal={openMintModal} setModalState={setOpenMintModal} />
+      <Tokenmint openModal={openTokenModal} setModalState={setOpenTokenModal} />
+      <AppCalls openModal={openAppCallsModal} setModalState={setOpenAppCallsModal} />
+    </div>
+  )
+}
+
+export default Home
