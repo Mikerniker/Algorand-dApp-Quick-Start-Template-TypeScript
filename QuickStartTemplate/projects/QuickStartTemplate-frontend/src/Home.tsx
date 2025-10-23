@@ -77,3 +77,33 @@ const Home: React.FC<HomeProps> = () => {
                 Open
               </button>
             </div>
+
+        {/* Mint NFT */}
+            <div className="p-8 rounded-3xl bg-emerald-900/40 shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_16px_rgba(255,255,255,0.05)] hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),inset_-4px_-4px_8px_rgba(255,255,255,0.05)] transition-all">
+              <AiOutlineStar className="text-5xl mb-4 text-teal-300" />
+              <h3 className="text-2xl font-semibold mb-2">Mint NFT</h3>
+              <p className="text-emerald-100/70 mb-6">
+                Upload and mint NFTs with IPFS metadata stored via Pinata — securely and sustainably.
+              </p>
+              <button
+                className="w-full py-2 rounded-xl bg-teal-400 hover:bg-teal-300 text-emerald-950 font-semibold shadow-[2px_2px_8px_rgba(0,0,0,0.4)] transition"
+                onClick={() => setOpenMintModal(true)}
+              >
+                Open
+              </button>
+            </div>
+
+            {/* Create Token */}
+            <div className="p-8 rounded-3xl bg-emerald-900/40 shadow-[8px_8px_16px_rgba(0,0,0,0.5),-4px_-4px_16px_rgba(255,255,255,0.05)] hover:shadow-[inset_4px_4px_8px_rgba(0,0,0,0.3),inset_-4px_-4px_8px_rgba(255,255,255,0.05)] transition-all">
+              <BsArrowUpRightCircle className="text-5xl mb-4 text-green-300" />
+              <h3 className="text-2xl font-semibold mb-2">Create Token (ASA)</h3>
+              <p className="text-emerald-100/70 mb-6">
+                Spin up your own Algorand Standard Asset (ASA) instantly and explore token creation on-chain.
+              </p>
+              <button
+                className="w-full py-2 rounded-xl bg-green-400 hover:bg-green-300 text-emerald-950 font-semibold shadow-[2px_2px_8px_rgba(0,0,0,0.4)] transition"
+                onClick={() => setOpenTokenModal(true)}
+              >
+                Open
+              </button>
+            </div>
